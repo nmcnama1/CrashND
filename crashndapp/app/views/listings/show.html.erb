@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dorm:</strong>
+  <%= @listing.dorm %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @listing.gender %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @listing.room %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @listing.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @listing.end_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @listing.description %>
+</p>
+
+<p>
+  <strong>Is available:</strong>
+  <%= @listing.is_available %>
+</p>
+
+<p>
+  <strong>Catalog:</strong>
+  <%= @listing.catalog %>
+</p>
+
+<p>
+  <strong>Landlord:</strong>
+  <%= @listing.landlord %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>

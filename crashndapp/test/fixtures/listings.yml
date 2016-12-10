@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dorm: MyString
+  gender: MyString
+  room: 1
+  start_date: 2016-12-10
+  end_date: 2016-12-10
+  description: MyText
+  is_available: false
+  catalog_id: 
+  landlord_id: 
+
+two:
+  dorm: MyString
+  gender: MyString
+  room: 1
+  start_date: 2016-12-10
+  end_date: 2016-12-10
+  description: MyText
+  is_available: false
+  catalog_id: 
+  landlord_id: 

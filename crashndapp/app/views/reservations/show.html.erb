@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dorm:</strong>
+  <%= @reservation.dorm %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @reservation.room %>
+</p>
+
+<p>
+  <strong>Checkin date:</strong>
+  <%= @reservation.checkin_date %>
+</p>
+
+<p>
+  <strong>Checkout date:</strong>
+  <%= @reservation.checkout_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reservation.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @reservation.status %>
+</p>
+
+<p>
+  <strong>Landlord:</strong>
+  <%= @reservation.landlord %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservation.user %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
