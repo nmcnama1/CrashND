@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'login' => 'login#index', as: :login
+  post 'login' => 'login#authenticate', as: :authenticate
+  get 'logout' => 'login#logout', as: :logout
+  get '/' => 'home#index', as: :home
+  root 'home#index'
+
   resources :reviews
   resources :reservations
   resources :listings
