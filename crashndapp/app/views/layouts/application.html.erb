@@ -11,6 +11,8 @@
     <p class="flash-message"><%= flash[:message] %></p>
   <% end %>
   <%= yield %>
-
+  <% if session[:user_id] %>
+    <%= link_to 'Logout', logout_path %>
+  <% end %>
 </body>
 </html>

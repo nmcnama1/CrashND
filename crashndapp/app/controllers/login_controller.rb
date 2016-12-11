@@ -6,7 +6,7 @@ class LoginController < ApplicationController
 	@user = User.find_by email: params[:email], password: params[:password]
 	if @user
 		flash[:message] = "Welcome #{@user.first_name}"
-		session[:user] = @user.id
+		session[:user_id] = @user.id
 		redirect_to home_path
 	else
 		flash[:message] = "Email and password did not match"
@@ -15,5 +15,8 @@ class LoginController < ApplicationController
   end
 
   def logout
+	session[:user_id] = nil
+	flash[:message]= "You have been logged out."
+	redirect_to login_path
   end
 end
