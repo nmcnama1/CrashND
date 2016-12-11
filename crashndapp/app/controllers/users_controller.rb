@@ -28,6 +28,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        if @user.is_landlord
+          @user.landlord =  Landlord.new
+	end
+	if @user.is_renter
+	  @user.renter = Renter.new
+        end
         format.html { redirect_to login_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
