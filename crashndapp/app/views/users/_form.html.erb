@@ -27,6 +27,14 @@
     <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
+  <div class="field">
+    <%= f.label :is_renter %>
+    <%= f.check_box :is_renter %>
+  </div>
+  <div class="field">
+    <%= f.label :is_landlord %>
+    <%= f.check_box :is_landlord %>  
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

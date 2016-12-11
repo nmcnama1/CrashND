@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :renters
   get 'login' => 'login#index', as: :login
   post 'login' => 'login#authenticate', as: :authenticate
   get 'logout' => 'login#logout', as: :logout
   get '/' => 'home#index', as: :home
+  get 'create_account' => 'user#new', as: :create_account
   root 'home#index'
 
   resources :reviews

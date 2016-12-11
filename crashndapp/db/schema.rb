@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210202519) do
+ActiveRecord::Schema.define(version: 20161211025530) do
 
   create_table "catalogs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20161210202519) do
   create_table "landlords", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "landlords", ["user_id"], name: "index_landlords_on_user_id"
 
   create_table "listings", force: :cascade do |t|
     t.string   "dorm"
@@ -40,38 +43,46 @@ ActiveRecord::Schema.define(version: 20161210202519) do
   add_index "listings", ["catalog_id"], name: "index_listings_on_catalog_id"
   add_index "listings", ["landlord_id"], name: "index_listings_on_landlord_id"
 
+  create_table "renters", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "renters", ["user_id"], name: "index_renters_on_user_id"
+
   create_table "reservations", force: :cascade do |t|
-    t.string   "dorm"
-    t.integer  "room"
     t.datetime "checkin_date"
     t.datetime "checkout_date"
     t.text     "description"
     t.string   "status"
-    t.integer  "landlord_id"
-    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "listing_id"
+    t.integer  "renter_id"
   end
 
-  add_index "reservations", ["landlord_id"], name: "index_reservations_on_landlord_id"
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+  add_index "reservations", ["listing_id"], name: "index_reservations_on_listing_id"
+  add_index "reservations", ["renter_id"], name: "index_reservations_on_renter_id"
 
   create_table "reviews", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "user_id"
     t.integer  "landlord_id"
     t.integer  "rating"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "direction"
+    t.integer  "renter_id"
   end
 
   add_index "reviews", ["landlord_id"], name: "index_reviews_on_landlord_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["renter_id"], name: "index_reviews_on_renter_id"
 
   create_table "room_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,8 +90,10 @@ ActiveRecord::Schema.define(version: 20161210202519) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "is_renter"
+    t.boolean  "is_landlord"
   end
 
 end
