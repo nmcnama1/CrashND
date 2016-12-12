@@ -1,4 +1,4 @@
-class LandlordsController < ApplicationController
+class LandlordsController < ProtectedController
   before_action :set_landlord, only: [:show, :edit, :update, :destroy]
 
   # GET /landlords

@@ -1,4 +1,4 @@
-class RoomTypesController < ApplicationController
+class RoomTypesController < ProtectedController
   before_action :set_room_type, only: [:show, :edit, :update, :destroy]
 
   # GET /room_types

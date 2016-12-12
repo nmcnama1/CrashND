@@ -1,4 +1,4 @@
-class ListingsController < ApplicationController
+class ListingsController < ProtectedController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings

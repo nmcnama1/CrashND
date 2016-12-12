@@ -1,4 +1,4 @@
-class CatalogsController < ApplicationController
+class CatalogsController < ProtectedController
   before_action :set_catalog, only: [:show, :edit, :update, :destroy]
 
   # GET /catalogs
