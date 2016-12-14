@@ -9,7 +9,7 @@ class Listing < ActiveRecord::Base
 
   # validated based on internal methods
   validate :validate_start_date
-  valide :validate_end_date
+  validate :validate_end_date
 
   private
 
