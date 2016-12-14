@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211025530) do
+ActiveRecord::Schema.define(version: 20161214021200) do
 
   create_table "catalogs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -94,6 +94,11 @@ ActiveRecord::Schema.define(version: 20161211025530) do
     t.datetime "updated_at",  null: false
     t.boolean  "is_renter"
     t.boolean  "is_landlord"
+    t.integer  "renter_id"
+    t.integer  "landlord_id"
   end
+
+  add_index "users", ["landlord_id"], name: "index_users_on_landlord_id"
+  add_index "users", ["renter_id"], name: "index_users_on_renter_id"
 
 end
